@@ -1,0 +1,38 @@
+<Window x:Class="OceanExecutorUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ocean Executor WebSocket UI" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Lua Script" FontWeight="Bold" Margin="0,0,0,4" />
+
+        <TextBox x:Name="ScriptTextBox" Grid.Row="1" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap" MinHeight="120" />
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
+                <Button x:Name="RunButton" Content="Run" Width="100" Click="RunButton_Click" IsEnabled="False" />
+                <TextBlock x:Name="StatusLabel" Margin="12,0,0,0" VerticalAlignment="Center" />
+            </StackPanel>
+            <GroupBox Header="Output" Padding="4">
+                <TextBox x:Name="OutputTextBox" IsReadOnly="True" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap" MinHeight="150" />
+            </GroupBox>
+        </StackPanel>
+
+        <StatusBar Grid.Row="3" Margin="0,8,0,0">
+            <StatusBarItem>
+                <TextBlock x:Name="ConnectionStatusText" Text="Server not started" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
